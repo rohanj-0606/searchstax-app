@@ -166,11 +166,11 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   max-height: 300px;
   overflow-y: auto;
-  z-index: 1000;
+  z-index: 100000;
   top: 100%;
   left: 0;
   margin-top: 5px;
-  visibility: visible; /* Ensure it is visible */
+  //visibility: visible; /* Ensure it is visible */
 }
 
 /* Hide autosuggest container when there are no suggestions */
@@ -526,6 +526,7 @@ body {
 
 /* Third row: Filters and results layout */
 .search-layout-row {
+  z-index: 500;
   padding: 20px;
   display: grid;
   grid-template-columns: 1fr 5fr; /* Filter and results next to each other */
@@ -544,7 +545,8 @@ body {
 }
 
 .result-column {
-  // grid-column: span 3; /* Result column occupies 3/4 */
+  z-index: 1;
+  grid-column: span 1; /* Result column occupies 3/4 */
   background-color: #ffffff;
   padding: 20px;
   border-radius: 8px;
@@ -650,13 +652,14 @@ body {
     margin-bottom: 0px;
     padding: 0px 0px 20px 0px;
     max-width: 100%;
+    z-index: 10000; /* Increase the z-index to ensure it's above other elements */
   }
 
   .autosuggest-container {
     width: 95%; /* Adjust the width for mobile */
     left: 50%;
     transform: translateX(-50%); /* Center the autosuggest on mobile */
-    z-index: 2000; /* Increase the z-index to ensure it's above other elements */
+    z-index: 10000; /* Increase the z-index to ensure it's above other elements */
   }
 
   .search-input {

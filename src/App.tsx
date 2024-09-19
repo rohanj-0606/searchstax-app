@@ -1,3 +1,17 @@
+/**
+ * App Component integrates SearchStax Site Search UI Kit with a custom UI.
+ * Widgets for search input, sorting, pagination, facets, and results are used.
+ * Custom templates are implemented for input, results, sorting, facets, and pagination.
+ *
+ * State:
+ * - searchstaxInstance: Stores the initialized Searchstax instance.
+ *
+ * Functions:
+ * - beforeSearch: Modifies search properties before triggering the search.
+ * - afterSearch: Processes search results after they return.
+ * - initialized: Sets the Searchstax instance once initialized.
+ */
+
 import React, { useState } from "react";
 import "./App.scss";
 import {
@@ -6,7 +20,7 @@ import {
   SearchstaxResultWidget,
   SearchstaxPaginationWidget,
   SearchstaxFacetsWidget,
-  SearchstaxSortingWidget, // Sorting widget
+  SearchstaxSortingWidget,
 } from "@searchstax-inc/searchstudio-ux-react";
 import { Searchstax } from "@searchstax-inc/searchstudio-ux-js";
 import { InputTemplate } from "./templates/inputTemplates";
@@ -16,31 +30,29 @@ import {
 } from "./templates/resultsTemplates";
 import Header from "./components/Header.js";
 import Footer from "./components/Footer.js";
-
-//@ts-ignore
 import { config, renderConfig } from "../config.js";
-import { paginationTemplate } from "./templates/paginationTemplates.js";
+import { paginationTemplate } from "./templates/paginationTemplates";
 import {
   facetsTemplateDesktop,
   facetsTemplateMobile,
-} from "./templates/facetTemplates.js";
-
-import { searchSortingTemplate } from "./templates/searchSortingTemplate.js";
+} from "./templates/facetTemplates";
+import { searchSortingTemplate } from "./templates/searchSortingTemplate";
 
 function App() {
   const [searchstaxInstance, setSearchstaxInstance] =
     useState<Searchstax | null>(null);
 
+  // Modify search properties before triggering the search
   function beforeSearch(props) {
-    const propsCopy = { ...props };
-    return propsCopy;
+    return { ...props };
   }
 
+  // Process search results after they return
   function afterSearch(results) {
-    const copy = [...results];
-    return copy;
+    return [...results];
   }
 
+  // Set the Searchstax instance once initialized
   function initialized(searchstax) {
     setSearchstaxInstance(searchstax);
   }
@@ -55,12 +67,11 @@ function App() {
         searchAuth={config.searchAuth}
         beforeSearch={beforeSearch}
         afterSearch={afterSearch}
-        authType={"token"}
+        authType="token"
         language={config.language}
         initialized={initialized}
       >
         <div className="searchstax-page-layout-container">
-          {/* First row: Search bar */}
           <div className="search-bar-row">
             <SearchstaxInputWidget
               inputTemplate={InputTemplate}
@@ -70,15 +81,13 @@ function App() {
             />
           </div>
 
-          {/* Second row: Sorting widget */}
           <div className="sorting-row">
             <SearchstaxSortingWidget
               searchSortingTemplate={searchSortingTemplate}
             />
           </div>
-          {/* Third row: Filter and results */}
+
           <div className="search-layout-row">
-            {/* <div className="filter-column"> */}
             <SearchstaxFacetsWidget
               facetingType="or"
               itemsPerPageDesktop={4}
@@ -86,16 +95,14 @@ function App() {
               facetsTemplateDesktop={facetsTemplateDesktop}
               facetsTemplateMobile={facetsTemplateMobile}
             />
-            {/* </div> */}
-
-            {/* <div className="result-column"> */}
             <SearchstaxResultWidget
               resultsPerPage={10}
-              renderMethod={"pagination"}
+              renderMethod="pagination"
               resultsTemplate={resultsTemplate}
               noResultTemplate={noResultTemplate}
             />
           </div>
+
           <div className="search-pagination-row">
             <SearchstaxPaginationWidget
               paginationTemplate={paginationTemplate}
