@@ -104,7 +104,7 @@ body {
 
 /* Fixed search input positioning at the top of the page */
 .search-input-wrapper {
-  position: fixed;
+  position: absolute;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
@@ -186,6 +186,7 @@ body {
   border-bottom: 1px solid #f4a261;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  z-index: 10000;
 }
 
 .autosuggest-item:hover {
@@ -638,6 +639,8 @@ body {
 
   .search-layout-row {
     grid-template-columns: 1fr; /* Stacks on small screens */
+    padding-top: 10px;
+    gap: 0px;
   }
 
   .filter-column {
@@ -677,6 +680,9 @@ body {
 
   .search-results-container {
     padding: 10px;
+  }
+  .searchstax-sorting-container {
+    padding: 10px 20px;
   }
 }
 
