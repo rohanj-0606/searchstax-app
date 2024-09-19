@@ -1,3 +1,4 @@
+/* Body styling with a gradient background */
 body {
   max-width: 100%;
   margin: 0;
@@ -9,16 +10,15 @@ body {
     #ffd699
   ); /* Orange and white gradient */
   color: #333;
-  //display: grid;
   place-items: center;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   position: relative;
-
   overflow-x: hidden;
 }
 
+/* Header styling */
 .header {
   background-color: #f8f9fa;
   padding: 15px 20px;
@@ -26,23 +26,26 @@ body {
   width: 100%;
 }
 
+/* Logo styling with responsive adjustment */
 .logo {
-  width: 50px; /* Default logo size */
-  height: auto; /* Maintain aspect ratio */
+  width: 50px;
+  height: auto;
   margin-right: 10px;
   cursor: pointer;
 
-  /* Responsive size adjustments for mobile */
+  /* Adjust logo size for mobile */
   @media (max-width: 600px) {
-    width: 30px; /* Smaller logo size on mobile */
+    width: 30px;
   }
 }
 
+/* Header content alignment */
 .header-content {
   display: flex;
   align-items: center;
 }
 
+/* Header title styling */
 .header-title {
   font-size: 24px;
   font-weight: bold;
@@ -50,7 +53,7 @@ body {
   cursor: pointer;
 }
 
-/* Footer styles */
+/* Footer styling */
 .footer {
   background-color: #f8f9fa;
   padding: 10px;
@@ -62,6 +65,7 @@ body {
   left: 0;
 }
 
+/* Footer content centering */
 .footer-content {
   display: flex;
   flex-direction: column;
@@ -69,6 +73,7 @@ body {
   align-items: center;
 }
 
+/* Footer text and link styling */
 .footer-text {
   margin: 5px 0;
   color: #666;
@@ -88,54 +93,52 @@ body {
   display: none;
 }
 
+/* Layout container for the main page */
 .searchstax-page-layout-container {
   display: grid;
-  grid-template-rows: auto 1fr auto; /* Main layout: Search input, results, and pagination */
+  grid-template-rows: auto 1fr auto; /* Layout for search input, results, and pagination */
   justify-items: center;
   max-width: 100%;
-  // max-width: 1200px;
   padding: 20px;
 }
 
-/* Center the input box at the top of the page */
+/* Fixed search input positioning at the top of the page */
 .search-input-wrapper {
   position: fixed;
   top: 20px;
-  margin-bottom: 0px;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
   max-width: 600px;
   z-index: 1000;
-  //background: #ffffff; /* White background for the input wrapper */
   border-radius: 8px;
-  //box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 10px 20px;
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 10px; /* Add gap between input and button */
+  gap: 10px; /* Gap between input and button */
 }
 
-/* Styles for the input box */
+/* Input box styling */
 .search-input {
   flex: 1;
   padding: 12px;
   font-size: 16px;
-  border: 1px solid #f4a261; /* Orange border color */
+  border: 1px solid #f4a261; /* Orange border */
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* Input focus state */
 .search-input:focus {
-  border-color: #e76f51; /* Darker orange focus color */
+  border-color: #e76f51; /* Darker orange focus */
   box-shadow: 0 2px 4px rgba(231, 111, 81, 0.3);
 }
 
-/* Styles for the search button */
+/* Search button styling */
 .search-button {
-  background-color: #e76f51; /* Dark orange background color */
+  background-color: #e76f51;
   border: none;
   border-radius: 8px;
   color: #fff;
@@ -156,7 +159,7 @@ body {
   font-size: 18px;
 }
 
-/* Styles for the autosuggest container */
+/* Autosuggest container styling with overflow for scrolling */
 .autosuggest-container {
   position: absolute;
   width: 100%;
@@ -170,15 +173,14 @@ body {
   top: 100%;
   left: 0;
   margin-top: 5px;
-  //visibility: visible; /* Ensure it is visible */
 }
 
-/* Hide autosuggest container when there are no suggestions */
+/* Hide autosuggest container when no suggestions are available */
 .autosuggest-container.hidden {
   display: none;
 }
 
-/* Styles for autosuggest items */
+/* Autosuggest item styling */
 .autosuggest-item {
   padding: 12px;
   border-bottom: 1px solid #f4a261;
@@ -187,23 +189,21 @@ body {
 }
 
 .autosuggest-item:hover {
-  background-color: #fcebd7; /* Light orange background on hover */
+  background-color: #fcebd7; /* Light orange on hover */
 }
 
-/* Styles for autosuggest item term */
 .autosuggest-item-term {
   font-size: 14px;
 }
 
-/* Style for search results ribbon */
-
+/* Search results ribbon */
 .searchstax-search-result-ribbon {
   padding: 5px 0px;
   font-size: 12px;
   font-weight: bold;
 }
 
-/* Styles for search results */
+/* Search results container styling */
 .searchstax-search-results-container {
   max-width: 100%;
   margin-right: 20px;
@@ -219,7 +219,7 @@ body {
   z-index: 1000;
 }
 
-/* Styles for individual search result items */
+/* Styling for individual search result items */
 .search-result-item {
   display: block;
   padding: 15px;
@@ -234,13 +234,13 @@ body {
 }
 
 .search-result-item:hover {
-  background-color: #fcebd7; /* Light orange background on hover */
+  background-color: #fcebd7; /* Light orange on hover */
 }
 
 .search-result-title {
   font-size: 16px;
   font-weight: bold;
-  color: #e76f51; /* Orange color for titles */
+  color: #e76f51; /* Orange title */
   margin-bottom: 5px;
 }
 
@@ -249,7 +249,7 @@ body {
   color: #333;
 }
 
-/* Styles for no results message */
+/* No results message styling */
 .no-results-container {
   padding: 20px;
   background-color: #ffffff;
@@ -280,6 +280,7 @@ body {
   border-bottom: 1px solid #d95d3f;
 }
 
+/* Tips for no results */
 .no-results-tips {
   font-size: 14px;
   color: #666;
@@ -292,34 +293,35 @@ body {
   margin-bottom: 10px;
 }
 
-/* Facets styling */
-
+/* Facet filters container styling */
 .searchstax-facets-container-desktop {
   display: flex;
   flex-wrap: nowrap; /* Ensure filters are in one line */
-  overflow-x: auto; /* Allow horizontal scrolling if needed */
+  overflow-x: auto;
   justify-content: flex-start;
   padding: 10px;
-  background-color: #fff7e5; /* Matching background gradient color */
+  background-color: #fff7e5;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Facet container styling */
 .searchstax-facet-container {
-  margin-right: 15px; /* Spacing between facet filters */
+  margin-right: 15px;
   flex-shrink: 0;
-
-  &.active {
-    font-weight: bold;
-    color: #e76f51; /* Darker orange for active facet */
-  }
 }
 
+.searchstax-facet-container.active {
+  font-weight: bold;
+  color: #e76f51;
+}
+
+/* Facet title and arrow */
 .searchstax-facet-title-container {
   display: flex;
   justify-content: space-between;
   cursor: pointer;
-  border-bottom: 1px solid #f4a261; /* Orange underline */
+  border-bottom: 1px solid #f4a261;
   padding-bottom: 5px;
 }
 
@@ -331,11 +333,13 @@ body {
 
 .searchstax-facet-title-arrow {
   transition: transform 0.3s;
-  &.active {
-    transform: rotate(180deg);
-  }
 }
 
+.searchstax-facet-title-arrow.active {
+  transform: rotate(180deg);
+}
+
+/* Facet values container styles */
 .searchstax-facet-values-container {
   display: flex;
   flex-direction: column;
@@ -344,7 +348,6 @@ body {
 
 .searchstax-facet-value-container {
   display: flex;
-  //justify-content: space-between;
   margin-bottom: 5px;
 
   &.searchstax-facet-value-disabled {
@@ -362,6 +365,7 @@ body {
   cursor: pointer;
 }
 
+/* Facet value label and count styles */
 .searchstax-facet-value-label {
   text-transform: capitalize !important;
   cursor: pointer;
@@ -372,6 +376,7 @@ body {
   cursor: pointer;
 }
 
+/* Show more/less buttons */
 .searchstax-facet-show-more-container {
   cursor: pointer;
   color: #e76f51; /* Dark orange */
@@ -383,7 +388,7 @@ body {
   cursor: pointer;
 }
 
-/* Mobile specific styles */
+/* Mobile-specific styles for facets */
 .searchstax-facets-container-mobile {
   position: fixed;
   top: 0;
@@ -401,6 +406,7 @@ body {
   }
 }
 
+/* Facet pills styles */
 .searchstax-facets-pill {
   display: flex;
   padding: 0.5rem;
@@ -422,6 +428,7 @@ body {
   }
 }
 
+/* Close button for mobile overlay */
 .searchstax-search-close {
   position: absolute;
   right: 10px;
@@ -429,6 +436,7 @@ body {
   cursor: pointer;
 }
 
+/* Header and done button in mobile facets overlay */
 .searchstax-facets-mobile-overlay-header {
   display: flex;
   justify-content: space-between;
@@ -445,10 +453,8 @@ body {
   cursor: pointer;
 }
 
-/* Pagination Styles */
-
+/* Pagination styles */
 .search-pagination-row {
-  //grid-row: 2; /* Place pagination in the second row */
   justify-self: right;
   padding-right: 20px;
   padding-bottom: 40px;
@@ -503,61 +509,54 @@ body {
   cursor: default;
 }
 
+/* Pagination details text */
 .searchstax-pagination-details {
   font-size: 16px;
   color: #333;
 }
 
-/* Container for the overall layout */
-/* First row: Search bar centered */
+/* Search page layout container */
 .search-bar-row {
   width: 100%;
-  //margin-bottom: 90px;
 }
 
-/* Second row: Sorting component */
+/* Sorting row */
 .sorting-row {
   display: grid;
-  grid-template-columns: 1fr auto; /* Main content and a sorting dropdown */
-  align-items: center; /* Vertically center the content */
-  // gap: 20px; /* Adjust the gap between the elements */
+  grid-template-columns: 1fr auto;
+  align-items: center;
   width: 100%;
 }
 
-/* Third row: Filters and results layout */
+/* Search layout row (filters and results) */
 .search-layout-row {
   z-index: 500;
   padding: 20px;
   display: grid;
-  grid-template-columns: 1fr 5fr; /* Filter and results next to each other */
-  gap: 20px; /* Space between filter and results */
-  //width: 100%;
-  align-items: flex-start; /* Align at the top */
+  grid-template-columns: 1fr 5fr;
+  gap: 20px;
+  align-items: flex-start;
 }
 
 .filter-column {
-  //grid-column: span 1; /* Filter column occupies 1/4 */
   background-color: white;
   padding: 20px;
   border-radius: 8px;
-  //box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   height: fit-content;
 }
 
 .result-column {
   z-index: 1;
-  grid-column: span 1; /* Result column occupies 3/4 */
   background-color: #ffffff;
   padding: 20px;
   border-radius: 8px;
-  //box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: grid;
   gap: 20px;
   height: auto;
-  grid-template-rows: auto auto; /* First row for results, second row for pagination */
+  grid-template-rows: auto auto;
 }
 
-/* Adjustments for pagination and results */
+/* Pagination and sorting containers */
 .searchstax-pagination-container {
   display: flex;
   justify-content: center;
@@ -567,10 +566,10 @@ body {
 
 .searchstax-sorting-container {
   display: grid;
-  grid-template-columns: auto auto; /* Sorting label and dropdown side by side */
-  align-items: center; /* Vertically center the content */
-  gap: 10px; /* Space between label and dropdown */
-  justify-content: end; /* Align sorting elements to the right */
+  grid-template-columns: auto auto;
+  align-items: center;
+  gap: 10px;
+  justify-content: end;
   padding: 10px 20px;
   max-width: 100%;
 }
@@ -582,6 +581,7 @@ body {
   margin-right: 10px;
 }
 
+/* Dropdown select styling */
 .searchstax-search-order-select {
   padding: 8px;
   font-size: 14px;
@@ -597,6 +597,7 @@ body {
   box-shadow: 0 2px 4px rgba(231, 111, 81, 0.3);
 }
 
+/* Hidden element utility */
 .hidden {
   display: none;
 }
@@ -611,6 +612,7 @@ body {
     max-width: 100%;
     padding: 0px;
   }
+
   .header-content {
     align-items: center;
     justify-content: center;
@@ -633,6 +635,7 @@ body {
     width: 100%;
     max-width: 100%;
   }
+
   .search-layout-row {
     grid-template-columns: 1fr; /* Stacks on small screens */
   }
@@ -647,35 +650,36 @@ body {
   }
 
   .search-input-wrapper {
-    width: 95%; /* Adjust the width for mobile */
+    width: 95%;
     position: relative;
     margin-bottom: 0px;
     padding: 0px 0px 20px 0px;
     max-width: 100%;
-    z-index: 10000; /* Increase the z-index to ensure it's above other elements */
+    z-index: 10000;
   }
 
   .autosuggest-container {
-    width: 95%; /* Adjust the width for mobile */
+    width: 95%;
     left: 50%;
-    transform: translateX(-50%); /* Center the autosuggest on mobile */
-    z-index: 10000; /* Increase the z-index to ensure it's above other elements */
+    transform: translateX(-50%);
+    z-index: 10000;
   }
 
   .search-input {
-    padding: 10px; /* Slightly reduce padding */
-    font-size: 14px; /* Slightly reduce font size */
+    padding: 10px;
+    font-size: 14px;
   }
 
   .search-button {
-    padding: 10px; /* Adjust button padding for mobile */
-    font-size: 14px; /* Reduce font size */
+    padding: 10px;
+    font-size: 14px;
   }
 
   .search-results-container {
-    padding: 10px; /* Reduce padding for mobile */
+    padding: 10px;
   }
 }
+
 /* Responsiveness for desktop filter overflow */
 @media screen and (max-width: 1200px) {
   .searchstax-facets-container-desktop {
