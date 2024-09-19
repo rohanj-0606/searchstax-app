@@ -1,0 +1,686 @@
+body {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(
+    135deg,
+    #fff7e5,
+    #ffd699
+  ); /* Orange and white gradient */
+  color: #333;
+  //display: grid;
+  place-items: center;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+
+  overflow-x: hidden;
+}
+
+.header {
+  background-color: #f8f9fa;
+  padding: 15px 20px;
+  border-bottom: 1px solid #dee2e6;
+  width: 100%;
+}
+
+.logo {
+  width: 50px; /* Default logo size */
+  height: auto; /* Maintain aspect ratio */
+  margin-right: 10px;
+  cursor: pointer;
+
+  /* Responsive size adjustments for mobile */
+  @media (max-width: 600px) {
+    width: 30px; /* Smaller logo size on mobile */
+  }
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+}
+
+.header-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Footer styles */
+.footer {
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-top: 1px solid #dee2e6;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-text {
+  margin: 5px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.footer-text a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.footer-text a:hover {
+  text-decoration: underline;
+}
+
+#searchAccessibilityContainer {
+  display: none;
+}
+
+.searchstax-page-layout-container {
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* Main layout: Search input, results, and pagination */
+  justify-items: center;
+  max-width: 100%;
+  // max-width: 1200px;
+  padding: 20px;
+}
+
+/* Center the input box at the top of the page */
+.search-input-wrapper {
+  position: fixed;
+  top: 20px;
+  margin-bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 600px;
+  z-index: 1000;
+  //background: #ffffff; /* White background for the input wrapper */
+  border-radius: 8px;
+  //box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px 20px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px; /* Add gap between input and button */
+}
+
+/* Styles for the input box */
+.search-input {
+  flex: 1;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #f4a261; /* Orange border color */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-input:focus {
+  border-color: #e76f51; /* Darker orange focus color */
+  box-shadow: 0 2px 4px rgba(231, 111, 81, 0.3);
+}
+
+/* Styles for the search button */
+.search-button {
+  background-color: #e76f51; /* Dark orange background color */
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  padding: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-button:hover {
+  background-color: #d95d3f; /* Darker orange on hover */
+}
+
+.search-button .fa-search {
+  font-size: 18px;
+}
+
+/* Styles for the autosuggest container */
+.autosuggest-container {
+  position: absolute;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #f4a261;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1000;
+  top: 100%;
+  left: 0;
+  margin-top: 5px;
+  visibility: visible; /* Ensure it is visible */
+}
+
+/* Hide autosuggest container when there are no suggestions */
+.autosuggest-container.hidden {
+  display: none;
+}
+
+/* Styles for autosuggest items */
+.autosuggest-item {
+  padding: 12px;
+  border-bottom: 1px solid #f4a261;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.autosuggest-item:hover {
+  background-color: #fcebd7; /* Light orange background on hover */
+}
+
+/* Styles for autosuggest item term */
+.autosuggest-item-term {
+  font-size: 14px;
+}
+
+/* Style for search results ribbon */
+
+.searchstax-search-result-ribbon {
+  padding: 5px 0px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Styles for search results */
+.searchstax-search-results-container {
+  max-width: 100%;
+  margin-right: 20px;
+  width: 100%;
+}
+
+.search-results-container {
+  background: #ffffff;
+  border: 1px solid #f4a261;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  z-index: 1000;
+}
+
+/* Styles for individual search result items */
+.search-result-item {
+  display: block;
+  padding: 15px;
+  border-bottom: 1px solid #f4a261;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.2s ease;
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.search-result-item:hover {
+  background-color: #fcebd7; /* Light orange background on hover */
+}
+
+.search-result-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #e76f51; /* Orange color for titles */
+  margin-bottom: 5px;
+}
+
+.search-result-snippet {
+  font-size: 14px;
+  color: #333;
+}
+
+/* Styles for no results message */
+.no-results-container {
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #f4a261;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.no-results-message {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.suggestion-link {
+  color: #e76f51;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 1px dotted #e76f51;
+  transition: color 0.2s ease, border-bottom 0.2s ease;
+}
+
+.suggestion-link:hover {
+  color: #d95d3f;
+  border-bottom: 1px solid #d95d3f;
+}
+
+.no-results-tips {
+  font-size: 14px;
+  color: #666;
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.no-results-tips li {
+  margin-bottom: 10px;
+}
+
+/* Facets styling */
+
+.searchstax-facets-container-desktop {
+  display: flex;
+  flex-wrap: nowrap; /* Ensure filters are in one line */
+  overflow-x: auto; /* Allow horizontal scrolling if needed */
+  justify-content: flex-start;
+  padding: 10px;
+  background-color: #fff7e5; /* Matching background gradient color */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.searchstax-facet-container {
+  margin-right: 15px; /* Spacing between facet filters */
+  flex-shrink: 0;
+
+  &.active {
+    font-weight: bold;
+    color: #e76f51; /* Darker orange for active facet */
+  }
+}
+
+.searchstax-facet-title-container {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  border-bottom: 1px solid #f4a261; /* Orange underline */
+  padding-bottom: 5px;
+}
+
+.searchstax-facet-title {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.searchstax-facet-title-arrow {
+  transition: transform 0.3s;
+  &.active {
+    transform: rotate(180deg);
+  }
+}
+
+.searchstax-facet-values-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+}
+
+.searchstax-facet-value-container {
+  display: flex;
+  //justify-content: space-between;
+  margin-bottom: 5px;
+
+  &.searchstax-facet-value-disabled {
+    opacity: 0.5;
+  }
+}
+
+.searchstax-facet-input {
+  margin-right: 10px;
+}
+
+.searchstax-facet-input-checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.searchstax-facet-value-label {
+  text-transform: capitalize !important;
+  cursor: pointer;
+}
+
+.searchstax-facet-value-count {
+  font-weight: 600 !important;
+  cursor: pointer;
+}
+
+.searchstax-facet-show-more-container {
+  cursor: pointer;
+  color: #e76f51; /* Dark orange */
+}
+
+.searchstax-facet-show-more-button,
+.searchstax-facet-show-less-button {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Mobile specific styles */
+.searchstax-facets-container-mobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: 1000;
+  display: none;
+}
+
+.searchstax-facets-mobile-overlay {
+  &.searchstax-show {
+    display: block;
+  }
+}
+
+.searchstax-facets-pill {
+  display: flex;
+  padding: 0.5rem;
+  margin-right: 10px;
+  background: #ddd;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &-filter-by {
+    height: auto !important;
+  }
+
+  &-clear-all {
+    background-color: #e76f51;
+    color: #fff;
+    padding: 0.3rem 0.5rem;
+  }
+}
+
+.searchstax-search-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.searchstax-facets-mobile-overlay-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.searchstax-facets-mobile-overlay-done {
+  display: block;
+  margin: 1rem auto;
+  padding: 0.5rem 1rem;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+/* Pagination Styles */
+
+.search-pagination-row {
+  //grid-row: 2; /* Place pagination in the second row */
+  justify-self: right;
+  padding-right: 20px;
+  padding-bottom: 40px;
+}
+
+.searchstax-pagination-empty {
+  display: none;
+}
+
+.searchstax-main-pagination-container {
+  display: contents;
+}
+
+.searchstax-pagination-container {
+  max-width: 100%;
+  background: #ffffff;
+  border: 1px solid #f4a261;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+}
+
+/* Adjust pagination content for smaller screens */
+.searchstax-pagination-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Pagination buttons */
+.searchstax-pagination-previous,
+.searchstax-pagination-next {
+  color: #e76f51; /* Dark orange */
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+}
+
+.searchstax-pagination-previous:hover,
+.searchstax-pagination-next:hover {
+  background-color: #fcebd7; /* Light orange */
+}
+
+.searchstax-pagination-previous:disabled,
+.searchstax-pagination-next:disabled {
+  color: #ccc;
+  pointer-events: none;
+  cursor: default;
+}
+
+.searchstax-pagination-details {
+  font-size: 16px;
+  color: #333;
+}
+
+/* Container for the overall layout */
+/* First row: Search bar centered */
+.search-bar-row {
+  width: 100%;
+  //margin-bottom: 90px;
+}
+
+/* Second row: Sorting component */
+.sorting-row {
+  display: grid;
+  grid-template-columns: 1fr auto; /* Main content and a sorting dropdown */
+  align-items: center; /* Vertically center the content */
+  // gap: 20px; /* Adjust the gap between the elements */
+  width: 100%;
+}
+
+/* Third row: Filters and results layout */
+.search-layout-row {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 5fr; /* Filter and results next to each other */
+  gap: 20px; /* Space between filter and results */
+  //width: 100%;
+  align-items: flex-start; /* Align at the top */
+}
+
+.filter-column {
+  //grid-column: span 1; /* Filter column occupies 1/4 */
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  //box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+}
+
+.result-column {
+  // grid-column: span 3; /* Result column occupies 3/4 */
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  //box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: grid;
+  gap: 20px;
+  height: auto;
+  grid-template-rows: auto auto; /* First row for results, second row for pagination */
+}
+
+/* Adjustments for pagination and results */
+.searchstax-pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.searchstax-sorting-container {
+  display: grid;
+  grid-template-columns: auto auto; /* Sorting label and dropdown side by side */
+  align-items: center; /* Vertically center the content */
+  gap: 10px; /* Space between label and dropdown */
+  justify-content: end; /* Align sorting elements to the right */
+  padding: 10px 20px;
+  max-width: 100%;
+}
+
+.searchstax-sorting-label {
+  font-size: 16px;
+  color: #e76f51;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.searchstax-search-order-select {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #f4a261;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.searchstax-search-order-select:focus {
+  border-color: #e76f51;
+  box-shadow: 0 2px 4px rgba(231, 111, 81, 0.3);
+}
+
+.hidden {
+  display: none;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  #root {
+    width: 100%;
+  }
+
+  .header {
+    max-width: 100%;
+    padding: 0px;
+  }
+  .header-content {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .searchstax-page-layout-container {
+    padding: 0px;
+  }
+
+  .search-pagination-row {
+    padding-bottom: 60px;
+    padding-right: 0px;
+    justify-self: center;
+  }
+
+  .search-bar-row {
+    margin-bottom: 0px;
+    position: unset;
+    width: 100%;
+    max-width: 100%;
+  }
+  .search-layout-row {
+    grid-template-columns: 1fr; /* Stacks on small screens */
+  }
+
+  .filter-column {
+    grid-column: span 1;
+    margin-bottom: 20px;
+  }
+
+  .result-column {
+    grid-column: span 1;
+  }
+
+  .search-input-wrapper {
+    width: 95%; /* Adjust the width for mobile */
+    position: relative;
+    margin-bottom: 0px;
+    padding: 0px 0px 20px 0px;
+    max-width: 100%;
+  }
+
+  .autosuggest-container {
+    width: 95%; /* Adjust the width for mobile */
+    left: 50%;
+    transform: translateX(-50%); /* Center the autosuggest on mobile */
+    z-index: 2000; /* Increase the z-index to ensure it's above other elements */
+  }
+
+  .search-input {
+    padding: 10px; /* Slightly reduce padding */
+    font-size: 14px; /* Slightly reduce font size */
+  }
+
+  .search-button {
+    padding: 10px; /* Adjust button padding for mobile */
+    font-size: 14px; /* Reduce font size */
+  }
+
+  .search-results-container {
+    padding: 10px; /* Reduce padding for mobile */
+  }
+}
+/* Responsiveness for desktop filter overflow */
+@media screen and (max-width: 1200px) {
+  .searchstax-facets-container-desktop {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  .search-bar-row {
+    margin-bottom: 0px;
+  }
+}
