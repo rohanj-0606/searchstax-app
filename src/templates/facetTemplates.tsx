@@ -24,7 +24,7 @@ export function facetsTemplateDesktop(
     data: IFacetData
   ) => void
 ) {
-  return facetsTemplateData ? (
+  return facetsTemplateData && facetsTemplateData.facets.length ? (
     <div className="filter-column">
       <div className="searchstax-facets-container-desktop">
         {facetsTemplateData?.facets.map((facet) => (

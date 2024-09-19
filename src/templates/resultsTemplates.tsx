@@ -32,7 +32,7 @@ export function noResultTemplate(
       </p>
       <ul className="no-results-tips">
         <li>Explore related terms or topics to refine your search.</li>
-        <li>Click the ‘X’ in the search box to start a new search.</li>
+        {/* <li>Click the ‘X’ in the search box to start a new search.</li> */}
       </ul>
     </div>
   );
