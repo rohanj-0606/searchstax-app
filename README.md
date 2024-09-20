@@ -88,6 +88,10 @@ After building the app, you can preview the production build locally by running:
 npm run preview
 ```
 
+## API KEY MANAGEMENT
+
+For best practices, the API key should be stored in a .env file for security purposes. However, for ease of running the code and testing, I have left the API key in the config.js file in this project.
+
 ## Customization
 
 ### SCSS Styling
