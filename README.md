@@ -102,12 +102,14 @@ You can modify the SCSS file located at `src/styles/App.scss` to customize the l
 
 Each part of the search app (input, sorting, pagination, facets) is broken down into individual components for easy customization. You can edit or extend these components to add additional functionality or modify their behavior.
 
+- **Header Component**: `Header.tsx`
+- **Footer Component**: `Footer.tsx`
 - **Input Component**: `inputTemplates.tsx`
 - **Search Results Component**: `resultsTemplates.tsx`
 - **Pagination Component**: `paginationTemplates.tsx`
 - **Facet Component**: `facetTemplates.tsx`
 - **Sorting Component**: `searchSortingTemplate.tsx`
-  s
+  
 
 ## Contact
 
