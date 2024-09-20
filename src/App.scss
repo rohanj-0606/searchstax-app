@@ -686,8 +686,25 @@ body {
   }
 }
 
+@media only screen and (min-device-width: 820px) and (max-device-width: 1024px) and (orientation: portrait) {
+  .search-layout-row {
+    display: inline-table;
+  }
+  .search-input-wrapper {
+    position: absolute;
+    top: 20px;
+    left: 71%;
+    width: 50%;
+    border-radius: 8px;
+    padding: 10px 20px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+  }
+}
+
 /* Responsiveness for desktop filter overflow */
-@media screen and (max-width: 1200px) {
+@media screen and (min-width: 1024px) {
   .searchstax-facets-container-desktop {
     flex-wrap: nowrap;
     overflow-x: auto;
