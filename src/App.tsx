@@ -12,7 +12,7 @@
  * - initialized: Sets the Searchstax instance once initialized.
  */
 
-import React, { useState } from "react";
+import { useState } from "react";
 import "./App.scss";
 import {
   SearchstaxWrapper,
@@ -22,38 +22,42 @@ import {
   SearchstaxFacetsWidget,
   SearchstaxSortingWidget,
 } from "@searchstax-inc/searchstudio-ux-react";
-import { Searchstax } from "@searchstax-inc/searchstudio-ux-js";
-import { InputTemplate } from "./templates/inputTemplates";
+import {
+  ISearchObject,
+  ISearchstaxParsedResult,
+  Searchstax,
+} from "@searchstax-inc/searchstudio-ux-js";
+import { InputTemplate } from "./components/inputTemplates.js";
 import {
   noResultTemplate,
   resultsTemplate,
-} from "./templates/resultsTemplates";
+} from "./components/resultsTemplates.js";
 import Header from "./components/Header.js";
 import Footer from "./components/Footer.js";
 import { config, renderConfig } from "../config.js";
-import { paginationTemplate } from "./templates/paginationTemplates";
+import { paginationTemplate } from "./components/paginationTemplates.js";
 import {
   facetsTemplateDesktop,
   facetsTemplateMobile,
-} from "./templates/facetTemplates";
-import { searchSortingTemplate } from "./templates/searchSortingTemplate";
+} from "./components/facetTemplates.js";
+import { searchSortingTemplate } from "./components/searchSortingTemplate.js";
 
 function App() {
   const [searchstaxInstance, setSearchstaxInstance] =
     useState<Searchstax | null>(null);
 
   // Modify search properties before triggering the search
-  function beforeSearch(props) {
+  function beforeSearch(props: ISearchObject) {
     return { ...props };
   }
 
   // Process search results after they return
-  function afterSearch(results) {
+  function afterSearch(results: ISearchstaxParsedResult[]) {
     return [...results];
   }
 
   // Set the Searchstax instance once initialized
-  function initialized(searchstax) {
+  function initialized(searchstax: Searchstax) {
     setSearchstaxInstance(searchstax);
   }
 
