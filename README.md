@@ -1,6 +1,6 @@
 # SearchStax App
 
-This repository contains a dynamic search application built with React and TypeScript, integrated with the SearchStax API to provide search functionalities, including sorting, pagination, and facets. The app features a modern UI with customizable components and is built using modern front-end technologies.
+This repository contains a dynamic, **mobile-responsive** search application built with React and TypeScript, integrated with the SearchStax API to provide search functionalities, including sorting, pagination, and facets. The app features a modern UI with customizable components, adaptable to various screen sizes, and is built using modern front-end technologies.
 
 ## Features
 
@@ -114,7 +114,7 @@ Each part of the search app (input, sorting, pagination, facets) is broken down 
 For any questions or inquiries, please contact:
 
 - **Name**: Rohan Jain
-- **Email**: rohan.jain@example.com
+- **Email**: rohanj.0606@gmail.com
 - **GitHub**: [github.com/rohanj-0606](https://github.com/rohanj-0606)
 - **LinkedIn**: [linkedin.com/in/rohanjain0606](https://www.linkedin.com/in/rohanjain0606/)
 - **Portfolio**: [www.rohansjain.info](http://www.rohansjain.info)
