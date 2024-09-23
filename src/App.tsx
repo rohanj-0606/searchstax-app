@@ -42,6 +42,8 @@ import {
 } from "./components/facetTemplates.js";
 import { searchSortingTemplate } from "./components/searchSortingTemplate.js";
 
+import DummyComponent from "./components/DummyComponent.js";
+
 function App() {
   const [searchstaxInstance, setSearchstaxInstance] =
     useState<Searchstax | null>(null);
@@ -64,10 +66,11 @@ function App() {
   return (
     <>
       <Header />
+      {/* <DummyComponent /> */}
       <SearchstaxWrapper
         searchURL={config.searchURL}
         suggesterURL={config.suggesterURL}
-        trackApiKey={config.trackApiKey}
+        // trackApiKey={config.trackApiKey}
         searchAuth={config.searchAuth}
         beforeSearch={beforeSearch}
         afterSearch={afterSearch}
