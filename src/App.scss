@@ -296,7 +296,6 @@ body {
 
 /* Facet filters container styling */
 .searchstax-facets-container-desktop {
-  display: flex;
   flex-wrap: nowrap; /* Ensure filters are in one line */
   overflow-x: auto;
   justify-content: flex-start;
@@ -534,7 +533,7 @@ body {
   z-index: 500;
   padding: 20px;
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 10fr 90fr;
   gap: 20px;
   align-items: flex-start;
 }
@@ -640,12 +639,12 @@ body {
   .search-layout-row {
     grid-template-columns: 1fr; /* Stacks on small screens */
     padding-top: 10px;
-    gap: 0px;
+    gap: 20px;
   }
 
   .filter-column {
-    grid-column: span 1;
-    margin-bottom: 20px;
+    padding: 0px;
+    background: none;
   }
 
   .result-column {
@@ -684,6 +683,23 @@ body {
   .searchstax-sorting-container {
     padding: 10px 20px;
   }
+
+  .searchstax-facets-container-mobile {
+    display: grid;
+    position: unset;
+  }
+  .searchstax-facets-container-desktop {
+    display: none;
+  }
+  .searchstax-facets-pill {
+    margin-right: 0px;
+  }
+  .searchstax-facet-title-container {
+    padding: 10px;
+  }
+  .searchstax-facets-mobile-overlay-header {
+    border-bottom: 0.5px solid;
+  }
 }
 
 @media only screen and (min-device-width: 820px) and (max-device-width: 1024px) and (orientation: portrait) {
@@ -708,6 +724,7 @@ body {
   .searchstax-facets-container-desktop {
     flex-wrap: nowrap;
     overflow-x: auto;
+    display: inherit;
   }
 
   .search-bar-row {
