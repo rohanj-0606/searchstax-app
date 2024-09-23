@@ -264,12 +264,12 @@ export function facetsTemplateMobile(
               </div>
             ))}
           </div>
-          <button
+          {/* <button
             className="searchstax-facets-mobile-overlay-done"
             onClick={closeOverlay}
           >
             Done
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
