@@ -5,12 +5,14 @@ const Header: React.FC = () => {
     <header
       className="header"
       onClick={() => {
-        window.location.reload();
+        const newUrl = window.location.href.split("?")[0];
+        // Replace the current URL without query parameters
+        window.location.replace(newUrl); // This will automatically reload the page
       }}
     >
       <div className="header-content">
         <img
-          src="/public/searchstax.svg"
+          src="/searchstax.svg" // Correct path to the logo
           alt="SearchStax Logo"
           className="logo"
         />
