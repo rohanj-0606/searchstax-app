@@ -1,5 +1,7 @@
 import { ISearchstaxSuggestion } from "@searchstax-inc/searchstudio-ux-js";
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass, faXmark } from "@fortawesome/free-solid-svg-icons"; // Import both icons
 
 export function InputTemplate(
   suggestions: ISearchstaxSuggestion[],
@@ -28,10 +30,24 @@ export function InputTemplate(
         className="search-input"
         placeholder="Search keyword..."
         aria-label="search"
+        //value={inputValue}
         onChange={handleInputChange}
         onFocus={() => setIsFocused(true)} // Focus handling
         onBlur={() => setIsFocused(false)} // Blur handling
       />
+
+      {/* Button to show either the search or cross icon */}
+      <button
+        id="searchstax-search-input-action-button"
+        onClick={() => setInputValue("")} // Clear input value on click
+      >
+        {/* Conditionally render the cross icon if there is input, otherwise show magnifying glass */}
+        {inputValue.length > 0 ? (
+          <FontAwesomeIcon icon={faXmark} /> // Show cross icon when there is text
+        ) : (
+          <FontAwesomeIcon icon={faMagnifyingGlass} /> // Show magnifying glass when input is empty
+        )}
+      </button>
 
       {/* Suggestions dropdown */}
       {showSuggestions && (

@@ -175,6 +175,20 @@ body {
   margin-top: 5px;
 }
 
+#searchstax-search-input-action-button {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 25px;
+  justify-content: right;
+  right: 40px;
+
+  &:hover {
+    color: #ff6f00; /* Orange color on hover */
+  }
+}
+
 /* Hide autosuggest container when no suggestions are available */
 .autosuggest-container.hidden {
   display: none;
@@ -699,6 +713,10 @@ body {
   }
   .searchstax-facets-mobile-overlay-header {
     border-bottom: 0.5px solid;
+  }
+  #searchstax-search-input-action-button {
+    top: 12px;
+    right: 20px;
   }
 }
 
